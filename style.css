@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://media.istockphoto.com/id/1281874571/vector/hand-drawn-vector-seamless-repeat-pattern-of-pizza-and-fresh-toppings.jpg?s=170667a&w=0&k=20&c=6GijCeu4h2eEXzUEbok5e4GPJjuo3D4HMaBHy3So6Ek=);
+    font-family: "Andika", sans-serif;
+    font-weight: 700;
+    font-style: normal; 
+}
+
+/* container ***************************************************************************/
+#container {
+    overflow: hidden;
+    max-width: 1200px;
+    max-height: 750px;
+    margin: 50px auto;
+    background-color: rgb(240, 219, 178);
+    color: rgb(54, 50, 50);
+    border-radius: 20px;
+    line-height: 2;
+    box-shadow: inset 8px 8px 24px -2px rgb(177, 83, 37);
+}
+
+.top {
+    width: 100%;
+    height: 400px;
+    margin-top: 2%;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    min-height: 300px;
+    width: 90%;
+    margin: 20px auto;
+    border-top: 1px solid orange;
+    padding-top: 10px;
+}
+
+/* Область заказа**********************************************************************/
+.view-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    float: left;
+    height: 480px;
+    width: 60%;
+    padding-left: 8%;
+}
+
+#total {
+    font-family: "Andika", sans-serif;
+    font-weight: 700;
+    font-style: normal;  
+    font-size: 1.5rem;
+}
+
+#total-price {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+    letter-spacing: 3px;
+}
+
+#order-list > li {
+    letter-spacing: 2px;
+    margin: 10px 0 0 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+/* картинка  пицца *****************************************************************/
+.to-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid orange;
+}
+
+#pizza-loader {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pizza-part {
+    height: 180px;
+    width: 180px;
+}
+
+#img1, #img2, #img3, #img4 {
+    opacity: 0;
+}
+
+/* Кнопка заказа *****************************************************************/
+#button-order {
+    width: 220px;
+    height: 60px;
+    font-size: 25px;
+    color: #fff;
+    background-color: rgb(88, 84, 84);
+    border-radius: 20px;
+}
+
+/* Игридиенты***********************************************************************/
+.form {
+    float: left;
+    width: 45%;
+    overflow: hidden;
+    min-height: 300px;
+    margin-top: 10px;
+    margin-left: -1px;
+    padding-left: 30px;
+}
+
+.label {
+    display: block;
+    margin-left: 25px;
+    font-family: "Andika", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ingrid {
+    width: 100%;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.ingrid::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top:110%;
+    left: 0;
+    right: 10%;
+    border-bottom: 3px solid orange;
+}
+
+.check-box {
+    position: absolute;
+    visibility: hidden;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.check-style {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-left: -25px;
+    margin-top: 5px;
+}
+
+.check-box:checked + .check-style {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/pngegg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.check-box:checked + .check-style + span {
+    color: orange;
+}
+
+/* Сообщение оформленного заказа************************ */
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(20, 20, 20, 0.459);
+} 
+
+#order-message {
+    font-family: serif;
+    width: 500px;
+    height: 350px;
+    margin: auto;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    border:#fff;
+    border-radius: 20px;
+}
+
+#order-message > p {
+    position: absolute;
+    bottom: 20%;
+
+}
+
+.orderMessageImg {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-image: url('img/istockphoto-1182416349-612x612.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#order-message > h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+#order-message > h2 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(48, 48, 48);
+
+}
+
+#closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    font-size: 25px;
+    color: #fff;
+    background-color: rgb(253, 7, 7);
+    cursor: pointer;
+    border-top-right-radius: 20px;
+}
+
+/* Media *********************/
+
+@media (max-width: 1024px) {
+    #container {
+        max-height: 1000px;
+    }
+
+    .to-order {
+        margin: 0 auto;
+    }
+
+    .view-order h1 {
+        font-size: 24px;
+    }
+
+    .pizza-part {
+        height: 150px;
+        width: 150px;
+    }
+
+    #button-order {
+        width: 150px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #container {
+        margin: 10px auto;
+    }
+
+    .view-order {
+        height: 370px;
+        width: 50%;
+        padding-left: 2%;
+    }
+
+    .view-order h1 {
+        font-size: 20px;
+    }
+
+    #order-list > li {
+        font-size: 14px;
+    }
+
+    #total {
+        font-size: 18px;
+    }
+
+    .pizza-part {
+        height: 130px;
+        width: 130px;
+    }
+
+    .bottom {
+        flex-wrap: wrap;
+        flex: 1 1;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .view-order h1 {
+        font-size: 16px;
+    }
+
+    #order-list > li {
+        font-size: 12px;
+    }
+
+    #total {
+        font-size: 16px;
+    }
+
+    .to-order {
+        border-left: none;
+    }
+
+    .pizza-part {
+        height: 120px;
+        width: 120px;
+    }
+
+    #order-message {
+        width: 400px;
+        height: 400px;
+    }
+
+}
+
+
+
+
+
+
+
